@@ -6,6 +6,8 @@ from .serializers import TodoModelSerializer, ProjectModelSerializer
 from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin, CreateModelMixin,\
     DestroyModelMixin
+from rest_framework import permissions
+
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from .filters import ProjectFilter
 from rest_framework.pagination import LimitOffsetPagination
@@ -17,6 +19,7 @@ from rest_framework.pagination import LimitOffsetPagination
 
 class ProjectViewSet(ModelViewSet):
     queryset = Project.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = ProjectModelSerializer
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     #filterset_fields = ['name']
@@ -30,6 +33,7 @@ class ProjectViewSet(ModelViewSet):
 
 class TodoViewSet(ModelViewSet):
     queryset = Todo.objects.all()
+    #permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = TodoModelSerializer
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     #filterset_fields = ['project']
