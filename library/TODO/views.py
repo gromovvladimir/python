@@ -19,12 +19,17 @@ from rest_framework.pagination import LimitOffsetPagination
 
 class ProjectViewSet(ModelViewSet):
     queryset = Project.objects.all()
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = ProjectModelSerializer
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     #filterset_fields = ['name']
     #filterset_class = ProjectFilter
     #pagination_class = ProjectLimitOffsetPagination
+
+ #   def get_serializer_class(self):
+    #    if self.request.method in ['GET']:
+   #         return ProjectModelSerializer
+   #     return ProjectModelSerializerBase
 
 
 #class TodoLimitOffsetPagination(LimitOffsetPagination):
@@ -42,5 +47,6 @@ class TodoViewSet(ModelViewSet):
    # def perform_destroy(self, instance):
     #    instance.delete_flag = True
     #    instance.save()
+
 
 

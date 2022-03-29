@@ -13,7 +13,7 @@ class CustomUserViewSet(ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserModelSerializer
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
 
 
 

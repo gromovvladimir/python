@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 class Project(models.Model):
-    #id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=128)
     project_users = models.ManyToManyField(CustomUser, related_name='+')
     link = models.CharField(verbose_name='link', max_length=128, db_index=True, unique=True, blank=True)
