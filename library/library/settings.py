@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'drf_yasg',
     'users',
     'TODO',
@@ -171,3 +172,6 @@ REST_FRAMEWORK = {
 
 #if DEBUG:
 #    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'].append('rest_framework.renders.BrowsableApiRenderer')
+GRAPHENE = {
+    "SCHEMA": "library.schema.schema"
+}
