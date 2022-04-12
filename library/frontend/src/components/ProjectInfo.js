@@ -7,6 +7,9 @@ const ProjectItem = ({project}) => {
    return (
        <tr>
            <td>
+              {project.id}
+           </td>
+           <td>
               {project.name}
            </td>
            <td>
@@ -25,6 +28,9 @@ const ProjectInformation = ({projects}) => {
 
    return (
        <table>
+           <th>
+               Id
+           </th>
            <th>
                Name
            </th>

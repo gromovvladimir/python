@@ -11,6 +11,7 @@ class Project(models.Model):
 
 
 class Todo(models.Model):
+    id = models.AutoField(primary_key=True)
     text = models.TextField(max_length=1024)
     created = models.DateTimeField(verbose_name='created', auto_now_add=True)
     updated = models.DateTimeField(verbose_name='updated', auto_now=True)

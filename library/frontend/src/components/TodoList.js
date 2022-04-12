@@ -1,9 +1,12 @@
 import React from 'react'
 
 
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, deleteTodo}) => {
    return (
        <tr>
+           <td>
+              {todo.id}
+           </td>
            <td>
               {todo.text}
            </td>
@@ -22,13 +25,17 @@ const TodoItem = ({todo}) => {
            <td>
                {todo.todo_user}
            </td>
+           <td><button onClick={()=>deleteTodo(todo.id)}>Delete</button></td>
        </tr>
    )
 }
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, deleteTodo}) => {
    return (
        <table>
+           <th>
+               Id
+           </th>
            <th>
                Text
            </th>
@@ -47,7 +54,9 @@ const TodoList = ({todos}) => {
            <th>
                Todo user
            </th>
-           {todos.map((todo) => <TodoItem todo={todo} />)}
+           {todos.map((todo) => <TodoItem todo={todo} deleteTodo={deleteTodo} />)}
+           <th></th>
+
        </table>
    )
 }
